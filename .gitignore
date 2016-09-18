@@ -1,0 +1,12 @@
+syntax: glob
+ 
+# Eclipse generated files:
+.settings/*
+ 
+# Build and relase directories:
+bin/*
+ 
+# Temporary files:
+
+.classpath
+.project

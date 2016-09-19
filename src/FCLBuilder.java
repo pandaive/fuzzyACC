@@ -1,3 +1,4 @@
+
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -31,14 +32,16 @@ public class FCLBuilder {
 			writer.println();
 			
 			writer.println("FUZZIFY speed");
-			writer.println("    TERM low := (0, 1) (90, 0) ;");
-			writer.println("    TERM high := (0, 0) (100,1) ;");
+			writer.println("    TERM low := (0, 1) (50, 0) ;");
+			writer.println("    TERM medium := (20, 0) (50, 1) (80, 0) ;");
+			writer.println("    TERM high := (50, 0) (100,1) ;");
 			writer.println("END_FUZZIFY");
 			writer.println();
 			
 			writer.println("FUZZIFY distance");
 			writer.println("    TERM small := (0, 1) (40, 0) ;");
-			writer.println("    TERM big := (30, 0) (150,1) ;");
+			writer.println("    TERM medium := (20, 0) (60, 1) (100, 0) ;");
+			writer.println("    TERM big := (60, 0) (150,1) ;");
 			writer.println("END_FUZZIFY");
 			writer.println();
 			
@@ -58,9 +61,14 @@ public class FCLBuilder {
 			writer.println();
 			
 			writer.println("    RULE 1 : IF distance IS small AND speed IS low THEN acceleration IS keep;");
-			writer.println("    RULE 2 : IF distance IS small AND speed IS high THEN acceleration IS slowDown;");
-			writer.println("    RULE 3 : IF distance IS big AND speed IS low THEN acceleration IS accelerate;");
-			writer.println("    RULE 4 : IF distance IS big AND speed IS high THEN acceleration IS keep;");
+			writer.println("    RULE 2 : IF distance IS small AND speed IS medium THEN acceleration IS slowDown;");
+			writer.println("    RULE 3 : IF distance IS small AND speed IS high THEN acceleration IS slowDown;");
+			writer.println("    RULE 4 : IF distance IS medium AND speed IS low THEN acceleration IS accelerate;");
+			writer.println("    RULE 5 : IF distance IS medium AND speed IS medium THEN acceleration IS keep;");
+			writer.println("    RULE 6 : IF distance IS medium AND speed IS high THEN acceleration IS slowDown;");
+			writer.println("    RULE 7 : IF distance IS big AND speed IS low THEN acceleration IS accelerate;");
+			writer.println("    RULE 8 : IF distance IS big AND speed IS medium THEN acceleration IS accelerate;");
+			writer.println("    RULE 9 : IF distance IS big AND speed IS high THEN acceleration IS keep;");
 			writer.println("END_RULEBLOCK");
 			writer.println();
 			

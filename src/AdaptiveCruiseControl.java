@@ -23,7 +23,6 @@ public class AdaptiveCruiseControl {
 		fis.evaluate();
 		
 		double speed_change = fis.getVariable("acceleration").getValue();
-		
 		return speed_change/100.0d;
 	}
 }

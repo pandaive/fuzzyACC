@@ -37,9 +37,11 @@ public class Main {
         movementThr.start();
         vehicleThr.start();
         
-        while (Button.ESCAPE.isUp()) {//do nothing
+        while (Button.ESCAPE.isUp()) {
+        	//do nothing
         }
         stop = true;
+        vehicle.saveLogs();
         
       //float[] sample = new float[distanceMode.sampleSize()];
  	   //distanceMode.fetchSample(sample, 0);

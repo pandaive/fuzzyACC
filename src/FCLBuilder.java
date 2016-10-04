@@ -32,23 +32,23 @@ public class FCLBuilder {
 			writer.println();
 			
 			writer.println("FUZZIFY speed");
-			writer.println("    TERM low := (0, 1) (50, 0) ;");
-			writer.println("    TERM medium := (20, 0) (50, 1) (80, 0) ;");
+			writer.println("    TERM low := (-10, 1) (30, 0) ;");
+			writer.println("    TERM medium := (0, 0) (50, 1) (80, 0) ;");
 			writer.println("    TERM high := (50, 0) (100,1) ;");
 			writer.println("END_FUZZIFY");
 			writer.println();
 			
 			writer.println("FUZZIFY distance");
-			writer.println("    TERM small := (0, 1) (40, 0) ;");
-			writer.println("    TERM medium := (20, 0) (60, 1) (100, 0) ;");
-			writer.println("    TERM big := (60, 0) (150,1) ;");
+			writer.println("    TERM small := (0, 1) (10, 1) (20, 0) ;");
+			writer.println("    TERM medium := (10, 0) (25, 1) (45, 0) ;");
+			writer.println("    TERM big := (35, 0) (70,1) ;");
 			writer.println("END_FUZZIFY");
 			writer.println();
 			
 			writer.println("DEFUZZIFY acceleration");
-			writer.println("    TERM slowDown := (-70,1) (0,0);");
-			writer.println("    TERM keep := (-10,0) (0,1) (10,0);");
-			writer.println("    TERM accelerate := (0,0) (70,1);");
+			writer.println("    TERM slowDown := (-80,1) (0,0);");
+			writer.println("    TERM keep := (-5,0) (0,1) (5,0);");
+			writer.println("    TERM accelerate := (0,0) (80,1);");
 			writer.println("    METHOD : COG;");
 			writer.println("    DEFAULT := 0;");
 			writer.println("END_DEFUZZIFY");

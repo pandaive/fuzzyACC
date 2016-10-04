@@ -20,7 +20,7 @@ public class MovementThread implements Runnable{
 	public void run() {
 		while (!Main.stop) {
 			speedB = Main.vehicleSpeed*6;
-			speedC = speedB * 13/20;
+			speedC = speedB * 16/20;
 			switch (Main.movement) {
 			case 0:
 				Motor.B.setSpeed(speedB);
@@ -29,16 +29,20 @@ public class MovementThread implements Runnable{
 				Motor.C.forward();
 				break;
 			case 1:
-				Motor.B.setSpeed(speedB  );
+				Motor.B.setSpeed(speedB);
 				Motor.C.setSpeed(speedB);
 				Motor.B.forward();
 				Motor.C.forward();
 				break;
 			case 2:
 				Motor.B.setSpeed(speedB);
-				Motor.C.setSpeed(speedC/2);
+				Motor.C.setSpeed(speedC*(3.0f/4.0f));
 				Motor.B.forward();
 				Motor.C.forward();
+				break;
+			case 3:
+				Motor.B.stop();
+				Motor.C.stop();
 				break;
 			}
 		}
